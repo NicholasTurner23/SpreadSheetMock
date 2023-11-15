@@ -270,10 +270,12 @@ class Viewer:
         label = " " + _align_center(col_range.first.column_label, width - 1)
         self.stdscr.addstr(*pos, label, curses.A_REVERSE)
         # draw the values
+        
         values = [
             (index, self.spreadsheet.get_formatted(index))
             for index in col_range.indices
         ]
+
         for dy, (index, value) in enumerate(values):
             text = " " + _align_right(value, width - 1)
             attr = 0
